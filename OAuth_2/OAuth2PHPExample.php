@@ -16,7 +16,8 @@ $response_type = 'code';
 $state = 'RandomState';
 $include_granted_scope = 'false';
 $grant_type= 'authorization_code';
-$certFilePath = './Certificate/all.platform.intuit.com.pem';
+//$certFilePath = './Certificate/all.platform.intuit.com.pem';
+$certFilePath = './Certificate/cacert.pem';
 
 
 $client = new Client($client_id, $client_secret, $certFilePath);
