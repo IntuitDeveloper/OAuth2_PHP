@@ -1,7 +1,14 @@
-<script
-     type="text/javascript"
-     src="https://appcenter.intuit.com/Content/IA/intuit.ipp.anywhere-1.3.3.js">
-</script>
+<?php
+if (isset($_GET["code"])) {
+?>
+    <script
+        type="text/javascript"
+        src="https://appcenter.intuit.com/Content/IA/intuit.ipp.anywhere-1.3.3.js">
+    </script>
+<?php
+}
+?>
+
 <?php
 require("./Client.php");
 $configs = include('./config.php');
@@ -20,8 +27,10 @@ $state = 'RandomState';
 $grant_type= 'authorization_code';
 
 
-$certFilePath = './Certificate/all.platform.intuit.com.pem';
-$certFilePathOpenID = './Certificate/sandbox_all_platform_intuit_com.pem';
+//$certFilePath = './Certificate/all.platform.intuit.com.pem';
+$certFilePath = './Certificate/cacert.pem';
+//$certFilePathOpenID = './Certificate/sandbox_all_platform_intuit_com.pem';
+$certFilePathOpenID = './Certificate/cacert.pem';
 /*At the time of development, https://accounts.platform.intuit.com/v1/openid_connect/userinfo is not available. Use sandbox instead. */
 $usrInfoURL = 'https://sandbox-accounts.platform.intuit.com/v1/openid_connect/userinfo';
 $tokenEndPointUrl = $configs['tokenEndPointUrl'];
