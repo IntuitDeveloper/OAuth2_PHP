@@ -34,7 +34,7 @@ DONOT USE LOCAL HOST. USE NGROK HTTPS URL.
 
 ***Certificate Setup***
 
-The core of HTTPS is the handshake process. During the handshake, clients will verify that the server is exactly the server they want to communicate with -- by verifying the certificate chain on the server. For ease of use, this sample program has already provide certificate with the app under Certificate folder. For those who want to know how to get those certificate, here is the step:
+The core of HTTPS is the handshake process. During the handshake, clients will verify that the server is exactly the server they want to communicate with -- by verifying the certificate chain on the server. For ease of use, this sample program has already provided certificate with the app under Certificate folder. For those who want to know how to get those certificate, here is the step:
 
 1) Download the server certificate from the websites. You can follow the instruction here: <http://docs.bvstools.com/home/ssl-documentation/exporting-certificate-authorities-cas-from-a-website> Make sure you choose the X.509 format with Chain(cer)
 
