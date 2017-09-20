@@ -1,10 +1,15 @@
-<html>
 <?php
+$session_id = session_id();
+if (empty($session_id))
+{
+    session_start();
+}
 $configs = include('./config.php');
 $redirect_uri = $configs['oauth_redirect_uri'];
 $openID_redirect_uri = $configs['openID_redirect_uri'];
 $refreshTokenPage = $configs['refreshTokenPage'];
  ?>
+<html>
  <script
       type="text/javascript"
       src="https://appcenter.intuit.com/Content/IA/intuit.ipp.anywhere-1.3.3.js">
@@ -29,7 +34,7 @@ $refreshTokenPage = $configs['refreshTokenPage'];
 
 
 <?php
-  session_start();
+
   if(isset($_SESSION['access_token']) && !empty($_SESSION['access_token'])){
     echo "<h3>Retrieve OAuth 2 Tokens from Sessions:</h3>";
     $tokens = array(
