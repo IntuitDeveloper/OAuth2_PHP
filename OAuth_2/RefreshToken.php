@@ -2,8 +2,11 @@
 require("./Client.php");
 $configs = include('./config.php');
 
-session_start();
-
+$session_id = session_id();
+if (empty($session_id))
+{
+    session_start();
+}
 $tokenEndPointUrl = $configs['tokenEndPointUrl'];
 $mainPage = $configs['mainPage'];
 $client_id = $configs['client_id'];
