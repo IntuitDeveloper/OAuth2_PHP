@@ -11,7 +11,8 @@ $client_secret = $configs['client_secret'];
 
 
 $grant_type= 'refresh_token';
-$certFilePath = './Certificate/all.platform.intuit.com.pem';
+//$certFilePath = './Certificate/all.platform.intuit.com.pem';
+$certFilePath = './Certificate/cacert.pem';
 
 
 $refresh_token = $_SESSION['refresh_token'];
