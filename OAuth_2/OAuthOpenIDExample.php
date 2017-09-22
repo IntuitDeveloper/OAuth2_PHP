@@ -1,20 +1,17 @@
 <?php
-if (isset($_GET["code"])) {
-?>
-    <script
-        type="text/javascript"
-        src="https://appcenter.intuit.com/Content/IA/intuit.ipp.anywhere-1.3.3.js">
-    </script>
-<?php
+$session_id = session_id();
+if (empty($session_id))
+{
+    session_start();
 }
-?>
-
-<?php
 require("./Client.php");
 $configs = include('./config.php');
-
-session_start();
-
+if (isset($_GET["code"])) {
+    echo '<script
+        type="text/javascript"
+        src="https://appcenter.intuit.com/Content/IA/intuit.ipp.anywhere-1.3.3.js">
+    </script>';
+}
 $mainPage = $configs['mainPage'];
 
 $client_id = $configs['client_id'];

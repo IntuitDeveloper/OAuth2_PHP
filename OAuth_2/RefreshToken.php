@@ -2,8 +2,11 @@
 require("./Client.php");
 $configs = include('./config.php');
 
-session_start();
-
+$session_id = session_id();
+if (empty($session_id))
+{
+    session_start();
+}
 $tokenEndPointUrl = $configs['tokenEndPointUrl'];
 $mainPage = $configs['mainPage'];
 $client_id = $configs['client_id'];
@@ -11,7 +14,8 @@ $client_secret = $configs['client_secret'];
 
 
 $grant_type= 'refresh_token';
-$certFilePath = './Certificate/all.platform.intuit.com.pem';
+//$certFilePath = './Certificate/all.platform.intuit.com.pem';
+$certFilePath = './Certificate/cacert.pem';
 
 
 $refresh_token = $_SESSION['refresh_token'];
