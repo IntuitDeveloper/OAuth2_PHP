@@ -6,13 +6,6 @@ if (empty($session_id))
 }
 require("./Client.php");
 $configs = include('./config.php');
-if (isset($_GET["code"])) {
-    echo '<script
-        type="text/javascript"
-        src="https://appcenter.intuit.com/Content/IA/intuit.ipp.anywhere-1.3.3.js">
-    </script>';
-}
-$mainPage = $configs['mainPage'];
 
 $client_id = $configs['client_id'];
 $client_secret = $configs['client_secret'];
@@ -39,6 +32,8 @@ if (!isset($_GET["code"]))
 {
     /*Step 1
     /*Do not use Curl, use header so it can redirect. Curl just download the content it does not redirect*/
+    unset($_SESSION['access_token']);
+    unset($_SESSION['refresh_token']);
     $authUrl = $client->getAuthorizationURL($authorizationRequestUrl, $scope, $redirect_uri, $response_type, $state);
     header("Location: ".$authUrl);
     exit();
@@ -56,15 +51,9 @@ else
     $client->setCertificate($certFilePathOpenID);
     $userInfo = $client->callForOpenIDEndpoint($openID_accessToken, $usrInfoURL);
     $_SESSION['userInfo'] = $userInfo;
-    //echo $result;
-    //var_dump($userInfo);
 
-    var_dump($_SESSION['userInfo']);
-    echo " <a href=\"javascript:void(0)\" onclick=\"return intuit.ipp.anywhere.logout(function ()
-          { window.location.href = '" .$mainPage . "';});\">
-          Sign Out and go back to Main page
-    </a>";
-
+    header("Location: http://localhost/OAuth2_PHP/OAuth_2/index.php");
+    exit();
 }
 
 ?>

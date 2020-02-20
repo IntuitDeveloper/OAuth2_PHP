@@ -11,4 +11,4 @@ return array(
   'mainPage' => '', //Example https://d1eec721.ngrok.io/OAuth_2/index.php',
   'refreshTokenPage' => '', //Example https://d1eec721.ngrok.io/OAuth_2/RefreshToken.php'
 )
- ?>
+?>
