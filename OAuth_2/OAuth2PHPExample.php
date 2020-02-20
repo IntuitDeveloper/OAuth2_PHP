@@ -1,23 +1,20 @@
 <?php
-require("./Client.php");
-$configs = include('./config.php');
-
 $session_id = session_id();
 if (empty($session_id))
 {
     session_start();
 }
-$authorizationRequestUrl = $configs['authorizationRequestUrl'];
-$tokenEndPointUrl = $configs['tokenEndPointUrl'];
+require("./Client.php");
+$configs = include('./config.php');
+
 $client_id = $configs['client_id'];
 $client_secret = $configs['client_secret'];
+$authorizationRequestUrl = $configs['authorizationRequestUrl'];
 $scope = $configs['oauth_scope'];
+$tokenEndPointUrl = $configs['tokenEndPointUrl'];
 $redirect_uri = $configs['oauth_redirect_uri'];
-
-
 $response_type = 'code';
 $state = 'RandomState';
-$include_granted_scope = 'false';
 $grant_type= 'authorization_code';
 //$certFilePath = './Certificate/all.platform.intuit.com.pem';
 $certFilePath = './Certificate/cacert.pem';
@@ -50,14 +47,9 @@ else
     $_SESSION['access_token'] = $result['access_token'];
     $_SESSION['refresh_token'] = $result['refresh_token'];
 
-    //
-    // JS to close popup and refresh parent page
-    echo '<script type="text/javascript">
-                window.opener.location.href = window.opener.location.href;
-                window.close();
-              </script>';
+    header("Location: http://localhost/OAuth2_PHP/OAuth_2/index.php");
+    exit();
 
 }
-
 
 ?>
