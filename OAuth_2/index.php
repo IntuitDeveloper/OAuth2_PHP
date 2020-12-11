@@ -33,7 +33,7 @@ $refreshTokenPage = $configs['refreshTokenPage'];
     echo "<br /> <a href='" .$refreshTokenPage . "?deleteSession=true'>
           Clean Session
     </a> <br />";
-  } else if ($_SESSION['userInfo']) {
+  } else if (!empty($_SESSION['userInfo'])) {
     echo "<h2 style='text-align:center; margin:50px 0'>User information obtained from open id call</h2>";
     echo "<br><h4>Given Name: {$_SESSION['userInfo']['givenName']}</h4>";
     echo "<h4>Family Name: {$_SESSION['userInfo']['familyName']}</h4>";
