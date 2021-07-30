@@ -1,4 +1,4 @@
-[![Sample Banner](views/Sample.png)][ss1]
+[![Rate your Sample](views/Ratesample.png)][ss1][![Yes](views/Thumbup.png)][ss2][![No](views/Thumbdown.png)][ss3]
 
 # OAuth2_PHP
 
@@ -109,4 +109,6 @@ window.opener.location.href = window.opener.location.href;
 
 as the refresh page javscript code. Therefore, please use NGORK URL in your URI. DO NOT USE LOCALHOST
 
-[ss1]: https://help.developer.intuit.com/s/samplefeedback?cid=9010&repoName=OAuth2_PHP
+[ss1]: #
+[ss2]: https://customersurveys.intuit.com/jfe/form/SV_9LWgJBcyy3NAwHc?check=Yes&checkpoint=OAuth2_PHP&pageUrl=github
+[ss3]: https://customersurveys.intuit.com/jfe/form/SV_9LWgJBcyy3NAwHc?check=No&checkpoint=OAuth2_PHP&pageUrl=github
